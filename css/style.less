@@ -1,0 +1,459 @@
+// Variable
+@widthContainer : 980px;
+@widthCol1 : 180px;
+@widthCol2 : 700px;
+
+@marginLeftCol : 20px;
+@defaultMargin : 20px;
+@mainPadding : 20px;
+
+.padding-custom (@top: 0, @right: 0, @bottom: 0, @left: 0) {
+    padding: @top @right @bottom @left; 
+}
+
+@bgWhite : #FFF;
+
+.border-radius (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.padding-custom (@top: 0, @right: 0, @bottom: 0, @left: 0) {
+    padding: @top @right @bottom @left; 
+}
+
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #333333;
+    background: url(../images/body.gif);
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.container {
+    width: @widthContainer;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  *zoom: 1;
+}
+
+.container:before,
+.container:after {
+  display: table;
+  content: "";
+}
+.row {
+  /*margin-left: -20px;*/
+  *zoom: 1;
+}
+
+.row:before,
+.row:after {
+  display: table;
+  content: "";
+}
+
+.row:after {
+  clear: both;
+}
+.container:after {
+  clear: both;
+}
+// Top menu 
+header {
+    padding: 0 10px;
+    height: 70px;
+    background: #f2f5f6; /* Old browsers */
+    background: -moz-linear-gradient(top, #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f5f6), color-stop(37%,#e3eaed), color-stop(100%,#c8d7dc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 ); /* IE6-9 */
+    position: relative;
+    .border-radius(6px);
+}
+header {
+    
+    .logo {
+        font-size: 1.4em;
+        position: absolute;
+        top: 20px;
+        
+    }
+    .top-menu {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        
+        ul {
+            overflow: hidden;
+            
+            li {
+                float: left;
+                margin-left: 2px;
+                
+                a {
+                    display: block;
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+}
+
+// Main
+section.row {
+    margin-top: 20px;
+}
+
+    // Left columns
+    aside.col-1 {
+        float: left;
+        width: @widthCol1;
+        background: @bgWhite;
+        min-height: 400px;
+        .border-radius(6px);
+        padding: @mainPadding;
+        
+        
+        nav.left-menu {
+            h2 { margin-bottom: 15px;}
+            ul li {
+                margin-bottom: 1px;
+            }       
+            ul li a{
+                display: block;
+                padding: 2px 5px;
+                text-decoration: none;
+            }
+             ul li a:hover,
+             ul li.active{
+                 background: #f1f1f1;
+                 .border-radius(3px);
+                 color: #333;
+             }
+        }
+        
+    }
+    // Right columns
+    section.col-2 {
+        float: right;
+        width: @widthCol2;
+        margin-left: @marginLeftCol;
+         background: @bgWhite;
+        min-height: 400px;
+        .border-radius(6px); 
+        padding: @mainPadding;
+        
+        .gallery {
+            ul.pic {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }  
+            ul.pic li {
+                float: left;
+                margin-right: 11px;
+                margin-bottom: 10px;
+                width: 226px;
+                position: relative;
+            }
+            
+            ul.pic li a img {
+               max-width: 100%;
+            }
+            ul.pic li div.desc{
+                background: rgba(61, 61, 61, 0.7);
+                position: absolute;
+                bottom: 2px;
+                -webkit-transition: opacity 0.7s ease-in-out;
+                -moz-transition: opacity 0.7s ease-in-out;
+                -o-transition: opacity 0.7s ease-in-out;
+                transition: opacity 0.7s ease-in-out;
+                opacity: 0;
+                
+                p {
+                    color: #FFF;
+                    padding: 10px;
+                }
+            }
+            ul.pic li:hover div.desc {
+                opacity: 1;
+            }
+            
+        }
+    }
+// Footer
+footer#footer {
+    margin-top: @defaultMargin;
+    background: #ccc;
+    .border-radius(6px);
+    
+    p {
+        padding: @mainPadding/2;
+        
+    }
+}
+
+/* Landscape phones and down */
+  @media (max-width: 480px) { 
+      @mainPadding : 10px;
+      
+      @gLiWidth : 49%;
+      @gLiHeight : auto;
+      
+      body {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      .container {
+        width: auto;
+      }
+      .row {
+          width: auto;
+      }
+      
+      //Header 
+      header {
+          background: none;
+          padding: 0;
+          
+        .logo {
+            font-size: 1.4em;
+            position: relative;
+            display: block;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .top-menu {
+            position: relative ;
+            ul {
+                overflow: hidden;
+                padding: 0;
+                margin: 0;
+                
+                background: #CCC;
+                
+                li {
+                    float: left;
+                    margin-left: 0;
+                    width: 33.333333333%;
+                    a {
+                        display: block;
+                        padding: 5px 10px;
+                        border-left: 1px solid #f1f1f1;
+                        text-align: center;
+                        font-weight: bold;
+                        color: #333;
+                        
+                        &:hover {
+                            background: #ededed;
+                            text-decoration: none;
+                        
+                        }
+                    }
+                    
+                }
+                li:first-child a{
+                   border-left: none; 
+                }
+
+            }
+        }
+    }
+      
+      // aside
+      aside.col-1 {
+        width: auto; 
+        float: none;
+        min-height: 0;
+        padding: @mainPadding;
+        
+        nav.left-menu {
+            h2 { margin-bottom: 10px;}
+            ul li {
+                margin-bottom: 1px;
+            }       
+            ul li a{
+                display: block;
+                padding: 2px 5px;
+                text-decoration: none;
+                background: #f1f1f1;
+                .border-radius(3px);
+                color: #333;
+            }
+             ul li a:hover,
+             ul li.active{
+                 background: #f5f5f5;
+             }
+        }
+      }
+      section.col-2 {
+        width: auto;  
+        float: none;
+        margin-left: 0;
+        margin-top: 20px;
+        padding: @mainPadding;
+        
+         .gallery {
+             ul.pic li {
+                margin-right: 2%;
+                margin-bottom: 10px;
+                width: @gLiWidth;
+                height: @gLiHeight;
+                position: relative;
+            }
+            ul.pic li:nth-child(2n) {
+                margin-right: 0;
+            }
+            
+            ul.pic li a img {
+             max-width: 100%;
+             
+            }
+        }
+      }
+      
+  }
+ 
+  /* Landscape phone to portrait tablet */
+  @media (max-width: 767px) and (min-width: 481px) { 
+      @mainPadding : 10px;
+      
+      @gLiWidth : 32%;
+      @gLiHeight : auto;
+      
+      body {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+      .container {
+        width: auto;
+      }
+      .row {
+          width: auto;
+      }
+      
+      // aside
+      aside.col-1 {
+        width: auto; 
+        float: none;
+        min-height: 0;
+        padding: @mainPadding;
+        
+        nav.left-menu {
+            h2 { margin-bottom: 10px;}
+            ul li {
+                margin-bottom: 1px;
+            }       
+            ul li a{
+                display: block;
+                padding: 2px 5px;
+                text-decoration: none;
+                background: #f1f1f1;
+                .border-radius(3px);
+                color: #333;
+            }
+             ul li a:hover,
+             ul li.active{
+                 background: #f5f5f5;
+             }
+        }
+      }
+      section.col-2 {
+        width: auto;  
+        float: none;
+        margin-left: 0;
+        margin-top: 20px;
+        padding: @mainPadding;
+        
+         .gallery {
+             ul.pic li {
+                margin-right: 2%;
+                margin-bottom: 10px;
+                width: @gLiWidth;
+                height: @gLiHeight;
+                position: relative;
+            }
+            ul.pic li:nth-child(3n) {
+                margin-right: 0;
+            }
+            
+            ul.pic li a img {
+             max-width: 100%;
+             
+            }
+        }
+      }
+  }
+ 
+  /* Portrait tablet to landscape and desktop */
+  @media (min-width: 768px) and (max-width: 979px) { 
+      @widthContainer : 724px;
+      @widthCol1 : 180px;
+      @widthCol2 : 484px;
+
+      @marginLeftCol : 20px;
+      @defaultMargin : 20px;
+      @mainPadding : 10px;
+      
+      @gLiWidth : 235px;
+      @gLiHeight : 180px;
+      
+      .container {
+          width: @widthContainer;
+      }
+      aside.col-1 {
+        width: @widthCol1;
+        background: @bgWhite;
+        padding: @mainPadding;
+      }
+      section.col-2 {
+         width: @widthCol2;
+         margin-left: @marginLeftCol;
+         background: @bgWhite;
+         padding: @mainPadding;
+         
+         .gallery {
+             ul.pic li {
+                margin-right: 14px;
+                margin-bottom: 10px;
+                width: @gLiWidth;
+                height: @gLiHeight;
+                position: relative;
+            }
+            ul.pic li:nth-child(2n) {
+                margin-right: 0;
+            }
+            
+            ul.pic li a img {
+             width: @gLiWidth;
+             height: @gLiHeight;
+            }
+        }
+      }
+      
+  }
+  
+  @media (min-width: 980px) { 
+      section.col-2 {
+      .gallery {
+          ul.pic li:nth-child(3n) {
+                margin-right: 0;
+            }
+      
+        }
+     }
+  }
